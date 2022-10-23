@@ -1,9 +1,32 @@
 .header {
-     background: linear-gradient(to bottom, rgb(255, 168, 81), rgb(255, 167, 81, 0.0));
-    
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 168, 81),
+    rgb(255, 167, 81, 0)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .title {
   font-family: "Fasthand", cursive;
   font-size: 50px;
   text-align: center;
+}
+.logout {
+  margin-left: 30px;
+  font-size: 10px;
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 5px 7px;
+  border-radius: 0 10px 10px 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.2s ease-in-out 0s;
+  &:hover {
+    transform: scale(1.25);
+    background-color: black;
+    opacity: 1;
+  }
 }

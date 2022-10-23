@@ -1,6 +1,7 @@
-
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import "../sass/login.scss";
+import hand from "../assets/images/hand.svg";
 
 export function Login(props: any) {
   let navigate = useNavigate();
@@ -10,7 +11,7 @@ export function Login(props: any) {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    if (username === "tim" && password === "123") {
+    if (username.toLowerCase() === "tim" && password === "123") {
       props.setAuth(true);
       let from = location.state?.from?.pathname || "/";
       navigate(from, { replace: true });
@@ -20,30 +21,37 @@ export function Login(props: any) {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
-          <input
-            name="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-     
+    <div className="login">
+      <div className="login-container">
+        <img src={hand} alt="hand" className="login-image" />
+        <h1 className="login__title">Login to Cleverpost</h1>
+        <form onSubmit={handleSubmit} className="login__form">
+          <label className="login__form--username">
+            Username:
+            <input
+              className="login__form--input"
+              name="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+          <label className="login__form--password">
+            <br />
+            Password:
+            <input
+              className="login__form--input"
+              name="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <button className="login__form--button" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

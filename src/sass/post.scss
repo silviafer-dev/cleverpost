@@ -1,15 +1,18 @@
-
-
 .post-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.link {
+  width: 230px;
+  min-height: 200px;
 }
 .flip-card {
   display: flex;
   background-color: transparent;
   width: 230px;
-  min-height: 200px;
+  min-height: 230px;
   margin: 10px;
 }
 
@@ -28,7 +31,7 @@
 .flip-card-back {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 230px;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -36,9 +39,9 @@
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border-radius: 20px;
   padding: 20px;
+  overflow: hidden;
 }
 
-/* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-image: url("../assets/images/vintage-floral-background.jpg");
   background-repeat: no-repeat;
@@ -46,17 +49,19 @@
   color: black;
 }
 
-/* Style the back side */
 .flip-card-back {
   background-image: url("../assets/images/floreal.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
   transform: rotateY(180deg);
-  overflow: hidden;
+  height: inherit;
+  word-break: break-word;
   cursor: pointer;
 }
 .post-card__body {
   height: 80%;
- 
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 700;
 }

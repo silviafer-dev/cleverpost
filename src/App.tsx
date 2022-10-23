@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./components/auth";
 import { Login } from "./components/Login";
 import { Home } from "./pages/Home";
+import { ModalCard } from './components/ModalCard';
 
 function App() {
   const [auth, setAuth] = useState(
@@ -17,12 +18,19 @@ function App() {
 
   return (
     <Routes>
-     
       <Route
         path="/"
         element={
           <RequireAuth auth={auth}>
             <Home auth={auth} setAuth={setAuth} />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/:id"
+        element={
+          <RequireAuth auth={auth}>
+            <ModalCard  />
           </RequireAuth>
         }
       />

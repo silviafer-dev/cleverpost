@@ -1,4 +1,11 @@
+export interface iPost {
+  userId: number;
+  id: number | string;
+  title: string;
+  body: string;
+}
+
 export interface iPostsState {
-    status: string,
-    posts: string[]
+  status: string;
+  posts: iPost[];
 }

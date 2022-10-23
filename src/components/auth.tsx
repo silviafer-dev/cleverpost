@@ -8,18 +8,15 @@ export function AuthStatus(props: any) {
   }
 
   return (
-    <p>
-      Welcome!
-      <button
-        onClick={() => {
-          props.setAuth(false);
+    <button className="logout"
+      onClick={() => {
+        props.setAuth(false);
 
-          navigate("/");
-        }}
-      >
-        Sign out
-      </button>
-    </p>
+        navigate("/");
+      }}
+    >
+      Sign out
+    </button>
   );
 }
 export function RequireAuth(props: any) {

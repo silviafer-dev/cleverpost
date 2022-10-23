@@ -1,35 +1,31 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../app/hooks";
-import { AppDispatch } from "../../app/store";
-import { fetchPosts, selectState } from "./postSlice";
+
+import { deletePost, fetchPosts, selectState, updatePost } from "./postSlice";
 import "../../sass/post.scss";
+import { iPost } from "../../interfaces";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { TiTrash, TiEdit } from "react-icons/ti";
 
 export function Post() {
-  const posts = useAppSelector(selectState).posts;
+  const posts = useAppSelector(selectState);
 
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
-  let colorAuthor = "";
-  posts.map((posts: any) => {
-    if (posts.userId === 1) {
-      colorAuthor = "green";
-    } else if (posts.userId === 2) {
-      colorAuthor = "blue";
-    } else {
-      colorAuthor = "yellow";
-    }
-    return colorAuthor;
-  });
+  const handleDelete = (id: number | string) => {
+    dispatch(deletePost(id));
+  };
+  // const handleUpdate = (id: string | number, body: string) => {
+  //   dispatch(updatePost(id,body));
+  // }
 
   return (
     <>
       {posts.length
-        ? posts.map((post: any) => (
+        ? posts.map((post: iPost) => (
             <div key={post.id} className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
@@ -58,8 +54,12 @@ export function Post() {
                   </h3>
                   <h4 className="post-card__title">{post.title}</h4>
                 </div>
+
                 <div className="flip-card-back">
-                  <p className="post-card__body">{post.body}</p>
+                  <p className="post-card__body">"{post.body}"</p>
+                
+                  <TiEdit />
+                  <TiTrash onClick={() => handleDelete(post.id)} />
                 </div>
               </div>
             </div>
