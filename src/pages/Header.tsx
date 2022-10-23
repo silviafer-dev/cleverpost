@@ -1,10 +1,11 @@
-export function Header() {
+import { AuthStatus } from "../components/auth";
+import "../sass/header.scss";
 
-
-
-    return (
-      <>
-        <h1 className="title">Posts From the Past</h1>
-      </>
-    );
+export function Header({ auth, setAuth }: any) {
+  return (
+    <div className="header">
+      <AuthStatus auth={auth} setAuth={setAuth}/>
+      <h1 className="title">Posts From the Past</h1>
+    </div>
+  );
 }
