@@ -3,11 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./components/auth";
 import { Login } from "./components/Login";
 import { Home } from "./pages/Home";
-import { ModalCard } from './components/ModalCard';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [auth, setAuth] = useState(
-    JSON.parse( localStorage.getItem( "auth") || '{}' )
+    JSON.parse(localStorage.getItem("auth") || "{}")
   );
 
   useEffect(() => {
@@ -17,25 +18,28 @@ function App() {
   }, [auth]);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <RequireAuth auth={auth}>
-            <Home auth={auth} setAuth={setAuth} />
-          </RequireAuth>
-        }
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <RequireAuth auth={auth}>
+              <Home auth={auth} setAuth={setAuth} />
+            </RequireAuth>
+          }
+        />
+
+        <Route path="/login" element={<Login setAuth={setAuth} />} />
+      </Routes>
+      <ToastContainer
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnHover
+        
       />
-      <Route
-        path="/:id"
-        element={
-          <RequireAuth auth={auth}>
-            <ModalCard  />
-          </RequireAuth>
-        }
-      />
-      <Route path="/login" element={<Login setAuth={setAuth} />} />
-    </Routes>
+    </div>
   );
 }
 

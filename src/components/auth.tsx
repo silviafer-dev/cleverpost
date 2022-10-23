@@ -8,7 +8,8 @@ export function AuthStatus(props: any) {
   }
 
   return (
-    <button className="logout"
+    <button
+      className="logout"
       onClick={() => {
         props.setAuth(false);
 

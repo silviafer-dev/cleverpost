@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../sass/login.scss";
 import hand from "../assets/images/hand.svg";
+import { toast } from "react-toastify";
 
 export function Login(props: any) {
   let navigate = useNavigate();
@@ -9,14 +10,28 @@ export function Login(props: any) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const notify = (message: string) => {
+    toast.error(message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   function handleSubmit(event: any) {
     event.preventDefault();
+
     if (username.toLowerCase() === "tim" && password === "123") {
       props.setAuth(true);
       let from = location.state?.from?.pathname || "/";
       navigate(from, { replace: true });
     } else {
       props.setAuth(false);
+      notify("Wrong username or password!");
     }
   }
 

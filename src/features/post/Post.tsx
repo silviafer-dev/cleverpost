@@ -5,11 +5,23 @@ import "../../sass/post.scss";
 import { iPost } from "../../interfaces";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { TiTrash, TiEdit } from "react-icons/ti";
+import { toast } from "react-toastify";
 
 export function Post() {
   const posts = useAppSelector(selectState);
 
   const dispatch = useAppDispatch();
+  const notify = (message: string) => {
+    toast.success(message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -17,6 +29,7 @@ export function Post() {
 
   const handleDelete = (id: number | string) => {
     dispatch(deletePost(id));
+    notify("Username or password is incorrect. Please, try again");
   };
   // const handleUpdate = (id: string | number, body: string) => {
   //   dispatch(updatePost(id,body));
@@ -26,10 +39,10 @@ export function Post() {
     <>
       {posts.length
         ? posts.map((post: iPost) => (
-            <div key={post.id} className="flip-card">
+            <div key={post.id} className="flip-card post-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <h3 className="">
+                  <h3 className="post-card__author">
                     {post.userId === 1
                       ? "Ian Flamming"
                       : "" || post.userId === 2
@@ -57,8 +70,8 @@ export function Post() {
 
                 <div className="flip-card-back">
                   <p className="post-card__body">"{post.body}"</p>
-                
-                  <TiEdit />
+
+                  <TiEdit onClick={() => notify("update")} />
                   <TiTrash onClick={() => handleDelete(post.id)} />
                 </div>
               </div>

@@ -4,10 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.link {
-  width: 230px;
-  min-height: 200px;
-}
+
 .flip-card {
   display: flex;
   background-color: transparent;
@@ -64,4 +61,21 @@
   font-style: italic;
   font-size: 12px;
   font-weight: 700;
+}
+.post-card {
+  &__author {
+    font-family: "Fasthand", cursive;
+    letter-spacing: 2px;
+    color: rgb(27, 20, 1);
+  }
+  &__title {
+    padding-top: 3px;
+    line-height: 1.6;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(58, 42, 2);
+  }
+  &__body {
+     letter-spacing: 2px;
+  }
 }
