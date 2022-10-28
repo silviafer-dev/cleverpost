@@ -29,7 +29,7 @@ export function Post() {
 
   const handleDelete = (id: number | string) => {
     dispatch(deletePost(id));
-    notify("Username or password is incorrect. Please, try again");
+    notify("Post deleted with success!");
   };
   // const handleUpdate = (id: string | number, body: string) => {
   //   dispatch(updatePost(id,body));

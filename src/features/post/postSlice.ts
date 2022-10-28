@@ -13,10 +13,10 @@ export const fetchPosts = createAsyncThunk("get/fetchPosts", async () => {
   const response = await axios.get(API);
   return response.data;
 });
-interface iUpdate {
-  id: string | number;
-  body: string;
-}
+// interface iUpdate {
+//   id: string | number;
+//   body: string;
+// }
 
 const postsSlice = createSlice({
   name: "posts",

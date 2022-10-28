@@ -8,12 +8,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [auth, setAuth] = useState(
-    JSON.parse(localStorage.getItem("auth") || "{}")
+    localStorage.getItem("auth")!== null
   );
 
   useEffect(() => {
     if (auth) {
-      localStorage.setItem("auth", JSON.stringify("1"));
+      localStorage.setItem("auth",'1');
     } else localStorage.removeItem("auth");
   }, [auth]);
 
@@ -37,7 +37,6 @@ function App() {
         closeOnClick
         rtl={false}
         pauseOnHover
-        
       />
     </div>
   );

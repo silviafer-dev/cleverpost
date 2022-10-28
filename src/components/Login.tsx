@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 export function Login(props: any) {
   let navigate = useNavigate();
   let location = useLocation();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const notify = (message: string) => {
     toast.error(message, {
@@ -22,7 +22,7 @@ export function Login(props: any) {
     });
   };
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (username.toLowerCase() === "tim" && password === "123") {
@@ -31,7 +31,7 @@ export function Login(props: any) {
       navigate(from, { replace: true });
     } else {
       props.setAuth(false);
-      notify("Wrong username or password!");
+      notify("Username or password is incorrect! Please, try again!");
     }
   }
 
@@ -48,7 +48,9 @@ export function Login(props: any) {
               name="username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUsername(e.target.value)
+              }
             />
           </label>
           <label className="login__form--password">
@@ -59,7 +61,9 @@ export function Login(props: any) {
               name="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
             />
           </label>
           <button className="login__form--button" type="submit">
