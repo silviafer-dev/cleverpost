@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/cleverpost/static/css/main.5d6d6b76.css",
+    "main.js": "/cleverpost/static/js/main.1c9a52e9.js",
+    "static/js/787.058b4a87.chunk.js": "/cleverpost/static/js/787.058b4a87.chunk.js",
+    "static/media/vintage-floral-background.jpg": "/cleverpost/static/media/vintage-floral-background.93b5b7df6a4972a7c141.jpg",
+    "static/media/photo-vintage.jpg": "/cleverpost/static/media/photo-vintage.64632ad52d0ab47adf81.jpg",
+    "static/media/floreal.jpg": "/cleverpost/static/media/floreal.093f8069e83e24139382.jpg",
+    "static/media/hand.svg": "/cleverpost/static/media/hand.86ee6e22f3365d2b139fb33870a348f4.svg",
+    "index.html": "/cleverpost/index.html",
+    "main.5d6d6b76.css.map": "/cleverpost/static/css/main.5d6d6b76.css.map",
+    "main.1c9a52e9.js.map": "/cleverpost/static/js/main.1c9a52e9.js.map",
+    "787.058b4a87.chunk.js.map": "/cleverpost/static/js/787.058b4a87.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d6d6b76.css",
+    "static/js/main.1c9a52e9.js"
+  ]
+}
