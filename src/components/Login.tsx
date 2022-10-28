@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../sass/login.scss";
-import hand from "../assets/images/hand.svg";
+import feather from "../assets/images/feather.svg";
 import { toast } from "react-toastify";
 
 export function Login(props: any) {
@@ -12,7 +12,7 @@ export function Login(props: any) {
 
   const notify = (message: string) => {
     toast.error(message, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -22,7 +22,7 @@ export function Login(props: any) {
     });
   };
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (username.toLowerCase() === "tim" && password === "123") {
@@ -37,9 +37,11 @@ export function Login(props: any) {
 
   return (
     <div className="login">
+      <div className="container-box">
+        <img src={feather} alt="hand" className="login-image" />
+        <h1 className="login__title">Welcome to Cleverpost</h1>
+      </div>
       <div className="login-container">
-        <img src={hand} alt="hand" className="login-image" />
-        <h1 className="login__title">Login to Cleverpost</h1>
         <form onSubmit={handleSubmit} className="login__form">
           <label className="login__form--username">
             Username:

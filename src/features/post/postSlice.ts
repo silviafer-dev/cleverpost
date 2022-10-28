@@ -29,10 +29,11 @@ const postsSlice = createSlice({
       state.posts = state.posts.filter((post) => post.id !== action.payload);
     },
     updatePost: (state: iPostsState, action: PayloadAction<iPost>) => {
-      state.posts= state.posts.map((post) =>
-        post.id === action.payload.id ? { ...post, body: action.payload.body } : post
+      state.posts = state.posts.map((post) =>
+        post.id === action.payload.id
+          ? { ...post, body: action.payload.body }
+          : post
       );
-     
     },
   },
   extraReducers(builder) {

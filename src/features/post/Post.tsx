@@ -6,6 +6,7 @@ import { iPost } from "../../interfaces";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { TiTrash, TiEdit } from "react-icons/ti";
 import { toast } from "react-toastify";
+import { UpdatePost } from "../../components/UpdatePost";
 
 export function Post() {
   const posts = useAppSelector(selectState);
@@ -13,13 +14,13 @@ export function Post() {
   const dispatch = useAppDispatch();
   const notify = (message: string) => {
     toast.success(message, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       progress: undefined,
-      theme: "dark",
+      theme: "light",
     });
   };
 
@@ -31,9 +32,7 @@ export function Post() {
     dispatch(deletePost(id));
     notify("Post deleted with success!");
   };
-  // const handleUpdate = (id: string | number, body: string) => {
-  //   dispatch(updatePost(id,body));
-  // }
+
 
   return (
     <>
@@ -70,6 +69,8 @@ export function Post() {
 
                 <div className="flip-card-back">
                   <p className="post-card__body">"{post.body}"</p>
+
+                      <UpdatePost post={post}/>
 
                   <TiEdit onClick={() => notify("update")} />
                   <TiTrash onClick={() => handleDelete(post.id)} />
