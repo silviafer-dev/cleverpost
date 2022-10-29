@@ -20,6 +20,7 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  z-index: 2;
 }
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
@@ -29,7 +30,7 @@
   position: absolute;
   width: 100%;
   min-height: 230px;
-  -webkit-backface-visibility: hidden; /* Safari */
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
@@ -63,6 +64,7 @@
   font-weight: 700;
 }
 .post-card {
+  transition: transform 0.8s;
   &__author {
     font-family: "Fasthand", cursive;
     letter-spacing: 2px;
@@ -76,6 +78,13 @@
     color: rgb(58, 42, 2);
   }
   &__body {
-     letter-spacing: 2px;
+    letter-spacing: 2px;
+  }
+  &__icon {
+    font-size: 20px;
+    margin: 10px;
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 }

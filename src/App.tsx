@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./components/auth";
-import { Login } from "./components/Login";
+import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 function App() {
-  const [auth, setAuth] = useState(
-    localStorage.getItem("auth")!== null
-  );
+  const [auth, setAuth] = useState(localStorage.getItem("auth") !== null);
 
   useEffect(() => {
     if (auth) {
-      localStorage.setItem("auth",'1');
+      localStorage.setItem("auth", "1");
     } else localStorage.removeItem("auth");
   }, [auth]);
 
@@ -28,6 +27,7 @@ function App() {
             </RequireAuth>
           }
         />
+      
 
         <Route path="/login" element={<Login setAuth={setAuth} />} />
       </Routes>

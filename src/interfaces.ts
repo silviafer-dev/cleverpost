@@ -1,5 +1,5 @@
 export interface iPost {
-  userId: number;
+  userId: number | string;
   id: number | string;
   title: string;
   body: string;
@@ -8,4 +8,5 @@ export interface iPost {
 export interface iPostsState {
   status: string;
   posts: iPost[];
+  post: {},
 }

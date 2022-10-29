@@ -1,28 +1,29 @@
-import { useEffect } from "react";
-
-import { deletePost, fetchPosts, selectState, updatePost } from "./postSlice";
+import { useEffect, useState } from "react";
+import { deletePost, fetchPosts, selectState } from "./postSlice";
 import "../../sass/post.scss";
 import { iPost } from "../../interfaces";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { TiTrash, TiEdit } from "react-icons/ti";
-import { toast } from "react-toastify";
+
 import { UpdatePost } from "../../components/UpdatePost";
 
 export function Post() {
   const posts = useAppSelector(selectState);
+  const [openModal, setOpenModal] = useState(false);
+  const [editPost, setEditPost] = useState("");
+
+  const handleOpen = (post: any) => {
+    setEditPost(post);
+    setOpenModal(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleClose = () => {
+    setOpenModal(false);
+    document.body.style.overflow = "scroll";
+  };
 
   const dispatch = useAppDispatch();
-  const notify = (message: string) => {
-    toast.success(message, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -30,12 +31,15 @@ export function Post() {
 
   const handleDelete = (id: number | string) => {
     dispatch(deletePost(id));
-    notify("Post deleted with success!");
   };
-
 
   return (
     <>
+      <UpdatePost
+        editPost={editPost}
+        openModal={openModal}
+        handleClose={handleClose}
+      />
       {posts.length
         ? posts.map((post: iPost) => (
             <div key={post.id} className="flip-card post-card">
@@ -70,10 +74,16 @@ export function Post() {
                 <div className="flip-card-back">
                   <p className="post-card__body">"{post.body}"</p>
 
-                      <UpdatePost post={post}/>
-
-                  <TiEdit onClick={() => notify("update")} />
-                  <TiTrash onClick={() => handleDelete(post.id)} />
+                  <TiEdit
+                    className="post-card__icon"
+                    onClick={() => {
+                      handleOpen(post);
+                    }}
+                  />
+                  <TiTrash
+                    className="post-card__icon"
+                    onClick={() => handleDelete(post.id)}
+                  />
                 </div>
               </div>
             </div>
