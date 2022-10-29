@@ -32,7 +32,7 @@ function App() {
         <Route path="/login" element={<Login setAuth={setAuth} />} />
       </Routes>
       <ToastContainer
-        hideProgressBar={false}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
