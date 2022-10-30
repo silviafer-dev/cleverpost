@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/cleverpost/static/css/main.5cf0d8a3.css",
-    "main.js": "/cleverpost/static/js/main.1c9a52e9.js",
+    "main.css": "/cleverpost/static/css/main.11cdcc11.css",
+    "main.js": "/cleverpost/static/js/main.2492e499.js",
     "static/js/787.058b4a87.chunk.js": "/cleverpost/static/js/787.058b4a87.chunk.js",
     "static/media/vintage-floral-background.jpg": "/cleverpost/static/media/vintage-floral-background.93b5b7df6a4972a7c141.jpg",
     "static/media/photo-vintage.jpg": "/cleverpost/static/media/photo-vintage.64632ad52d0ab47adf81.jpg",
     "static/media/floreal.jpg": "/cleverpost/static/media/floreal.093f8069e83e24139382.jpg",
-    "static/media/hand.svg": "/cleverpost/static/media/hand.86ee6e22f3365d2b139fb33870a348f4.svg",
+    "static/media/flashlight.svg": "/cleverpost/static/media/flashlight.158aa4a465b56cfdc100b56749b51e07.svg",
+    "static/media/feather.svg": "/cleverpost/static/media/feather.314c9ec2273c30237d5c16c1ee6fe008.svg",
     "index.html": "/cleverpost/index.html",
-    "main.5cf0d8a3.css.map": "/cleverpost/static/css/main.5cf0d8a3.css.map",
-    "main.1c9a52e9.js.map": "/cleverpost/static/js/main.1c9a52e9.js.map",
+    "main.11cdcc11.css.map": "/cleverpost/static/css/main.11cdcc11.css.map",
+    "main.2492e499.js.map": "/cleverpost/static/js/main.2492e499.js.map",
     "787.058b4a87.chunk.js.map": "/cleverpost/static/js/787.058b4a87.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cf0d8a3.css",
-    "static/js/main.1c9a52e9.js"
+    "static/css/main.11cdcc11.css",
+    "static/js/main.2492e499.js"
   ]
 }
