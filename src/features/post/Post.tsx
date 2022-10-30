@@ -134,7 +134,7 @@ export function Post(props: {
                   }}
                 />
                 <TiTrash
-                  className="post-card__icon"
+                  className="post-card__icon delete"
                   onClick={() => handleDelete(post.id)}
                 />
               </div>

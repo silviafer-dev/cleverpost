@@ -80,7 +80,7 @@ export function UpdatePost(props: {
             cols={32}
           />
           <button type="submit" className="modal__save">
-            Save
+            Update!
           </button>
         </form>
       </div>

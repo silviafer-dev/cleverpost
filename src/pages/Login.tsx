@@ -49,7 +49,7 @@ export function Login(props: {
           <label className="login__form--username">
             Username:
             <input
-              className="login__form--input"
+              className="login__form--input username"
               name="username"
               type="text"
               value={username}
@@ -59,7 +59,7 @@ export function Login(props: {
               }
             />
           </label>
-          <label className="login__form--password">
+          <label className="login__form--password password">
             <br />
             Password:
             <input

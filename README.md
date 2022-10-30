@@ -31,7 +31,7 @@ You can access to the app from the login page with:
 
 # Run the app
 
-`npm start` open the browse in "http://localhost:3000"
+`npm start` open the browse in "http://localhost:3000/cleverpost"
 
 # Run e2e test
 
