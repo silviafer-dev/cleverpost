@@ -4,10 +4,10 @@ import { updatePost } from "../features/post/postSlice";
 import { useEffect } from "react";
 import "../sass/updatePost.scss";
 import { IoIosCloseCircle } from "react-icons/io";
-import { IPost } from "../interfaces";
+
 
 export function UpdatePost(props: {
-  editPost: any ;
+  editPost: any;
   openModal: boolean;
   handleClose: () => void;
 }) {
@@ -30,6 +30,7 @@ export function UpdatePost(props: {
         body: edit,
         userId: "",
         title: "",
+  
       })
     );
     props.handleClose();
@@ -71,8 +72,16 @@ export function UpdatePost(props: {
         </h1>
         <h4 className="modal__title">{props.editPost.title}</h4>
         <form onSubmit={handleUpdate} className="modal__form">
-          <textarea className="modal__body" value={edit} onChange={handleChange} rows={7} cols={35} />
-          <button type="submit" className="modal__save">Save</button>
+          <textarea
+            className="modal__body"
+            value={edit}
+            onChange={handleChange}
+            rows={7}
+            cols={32}
+          />
+          <button type="submit" className="modal__save">
+            Save
+          </button>
         </form>
       </div>
     </div>

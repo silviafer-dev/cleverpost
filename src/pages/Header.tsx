@@ -10,7 +10,7 @@ export function Header({ auth, setAuth, searchItems, searchInput }: any) {
       <div>
         <nav className="nav-bar">
           <label className="header__label left">
-            {/* <BiSearchAlt className="search"/> */}
+        
             <input
               className="header__input"
               value={searchInput}

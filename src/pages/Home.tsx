@@ -4,7 +4,7 @@ import { Header } from "./Header";
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { fetchPosts, selectState } from "../features/post/postSlice";
-import { IPost, IAuth } from '../interfaces';
+import { IPost } from '../interfaces';
 
 export function Home(props: {
   auth: boolean;
@@ -12,7 +12,6 @@ export function Home(props: {
 }) {
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchPost, setSearchPost] = useState<Array<IPost>>([]);
-
   const posts = useAppSelector(selectState);
   const dispatch = useAppDispatch();
 
@@ -43,6 +42,7 @@ export function Home(props: {
           posts={posts}
           filteredPost={filteredPost}
           searchInput={searchInput}
+         
         />
       </div>
     </>

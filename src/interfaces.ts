@@ -4,21 +4,19 @@ export interface IPost {
   title: string;
   body: string;
 }
-export interface IPostObg {
-  posts: []
-}
+
 
 export interface IPostsState {
   status: string;
   posts: IPost[];
-  
 }
 export interface IAuth {
   children: any;
-  auth: string
+  auth: string;
 }
 export interface IAuthState {
   children: any;
   auth: IAuth;
-  setAuth:  (state: boolean) => void;
+  setAuth: (state: boolean) => void;
 }
+

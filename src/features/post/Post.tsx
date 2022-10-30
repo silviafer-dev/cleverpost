@@ -9,12 +9,12 @@ import { UpdatePost } from "../../components/UpdatePost";
 import { NoMatches } from "../../components/NoMatches";
 
 
-
 export function Post(props: {
   searchPost: IPost[];
   posts: IPost[];
   filteredPost: IPost[];
   searchInput: string;
+ 
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [editPost, setEditPost] = useState([]);
@@ -127,7 +127,6 @@ export function Post(props: {
 
               <div className="flip-card-back">
                 <p className="post-card__body">"{post.body}"</p>
-
                 <TiEdit
                   className="post-card__icon"
                   onClick={() => {

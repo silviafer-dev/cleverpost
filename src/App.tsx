@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 function App() {
   const [auth, setAuth] = useState<boolean>(localStorage.getItem("auth") !== null);
 
@@ -26,7 +27,7 @@ function App() {
             </RequireAuth>
           }
         />
-
+       
         <Route
           path="/login"
           element={<Login auth={auth} setAuth={setAuth} />}

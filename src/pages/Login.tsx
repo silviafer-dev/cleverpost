@@ -53,6 +53,7 @@ export function Login(props: {
               name="username"
               type="text"
               value={username}
+              placeholder="Tim"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setUsername(e.target.value)
               }
@@ -66,6 +67,7 @@ export function Login(props: {
               name="password"
               type="password"
               value={password}
+              placeholder="123"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
