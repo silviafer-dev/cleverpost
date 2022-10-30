@@ -1,12 +1,24 @@
-export interface iPost {
+export interface IPost {
   userId: number | string;
   id: number | string;
   title: string;
   body: string;
 }
+export interface IPostObg {
+  posts: []
+}
 
-export interface iPostsState {
+export interface IPostsState {
   status: string;
-  posts: iPost[];
-  post: {},
+  posts: IPost[];
+  
+}
+export interface IAuth {
+  children: any;
+  auth: string
+}
+export interface IAuthState {
+  children: any;
+  auth: IAuth;
+  setAuth:  (state: boolean) => void;
 }

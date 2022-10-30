@@ -68,9 +68,29 @@
   }
 }
 .login__title {
-  
   font-size: 34px;
   font-family: "Fasthand", cursive;
+}
 
- 
+@media only screen and (max-width: 500px) {
+  .container-box {
+   position: relative;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  }
+  .login__title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .login-image {
+  text-align: end;
+  width: 94px;
+  position: absolute;
+  padding-bottom: 30px;
+  bottom: 29px;
+  left: 264px;
+}
 }

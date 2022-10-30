@@ -1,21 +1,28 @@
 import { useState } from "react";
 import { deletePost } from "./postSlice";
 import "../../sass/post.scss";
-import { iPost } from "../../interfaces";
+import { IPost } from "../../interfaces";
 import { useAppDispatch } from "../../app/hooks";
 import { TiTrash, TiEdit } from "react-icons/ti";
 
 import { UpdatePost } from "../../components/UpdatePost";
 import { NoMatches } from "../../components/NoMatches";
 
-export function Post({ searchPost, posts, filteredPost, searchInput }: any) {
+
+
+export function Post(props: {
+  searchPost: IPost[];
+  posts: IPost[];
+  filteredPost: IPost[];
+  searchInput: string;
+}) {
   const [openModal, setOpenModal] = useState(false);
-  const [editPost, setEditPost] = useState("");
+  const [editPost, setEditPost] = useState([]);
   const dispatch = useAppDispatch();
 
   const handleOpen = (post: any) => {
-    setEditPost(post);
     setOpenModal(true);
+    setEditPost(post);
     document.body.style.overflow = "hidden";
   };
 
@@ -35,9 +42,9 @@ export function Post({ searchPost, posts, filteredPost, searchInput }: any) {
         openModal={openModal}
         handleClose={handleClose}
       />
-      {searchPost.length === 0 ? (
-        filteredPost.length ? (
-          filteredPost.map((post: iPost) => (
+      {props.searchPost.length === 0 ? (
+        props.filteredPost.length ? (
+          props.filteredPost.map((post: IPost) => (
             <div key={post.id} className="flip-card post-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
@@ -85,10 +92,10 @@ export function Post({ searchPost, posts, filteredPost, searchInput }: any) {
             </div>
           ))
         ) : (
-          <NoMatches searchInput={searchInput} />
+          <NoMatches searchInput={props.searchInput} />
         )
       ) : (
-        posts.map((post: iPost) => (
+        props.posts.map((post: IPost) => (
           <div key={post.id} className="flip-card post-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">

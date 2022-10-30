@@ -4,7 +4,10 @@ import "../sass/login.scss";
 import feather from "../assets/images/feather.svg";
 import { toast } from "react-toastify";
 
-export function Login(props: any) {
+export function Login(props: {
+  auth: boolean;
+  setAuth: (state: boolean) => void;
+}) {
   let navigate = useNavigate();
   let location = useLocation();
   const [username, setUsername] = useState<string>("");

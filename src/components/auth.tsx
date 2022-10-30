@@ -1,6 +1,7 @@
 import { useLocation, Navigate, useNavigate } from "react-router-dom";
+import { IAuthState } from "../interfaces";
 
-export function AuthStatus(props: any) {
+export function AuthStatus(props: IAuthState) {
   let navigate = useNavigate();
 
   if (!props.auth) {
@@ -20,7 +21,7 @@ export function AuthStatus(props: any) {
     </button>
   );
 }
-export function RequireAuth(props: any) {
+export function RequireAuth(props: { children: any; auth: boolean }) {
   let location = useLocation();
 
   if (!props.auth) {

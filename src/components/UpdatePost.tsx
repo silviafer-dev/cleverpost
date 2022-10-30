@@ -4,10 +4,10 @@ import { updatePost } from "../features/post/postSlice";
 import { useEffect } from "react";
 import "../sass/updatePost.scss";
 import { IoIosCloseCircle } from "react-icons/io";
-import { iPost } from "../interfaces";
+import { IPost } from "../interfaces";
 
 export function UpdatePost(props: {
-  editPost: any;
+  editPost: any ;
   openModal: boolean;
   handleClose: () => void;
 }) {

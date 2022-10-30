@@ -6,9 +6,8 @@ import { Home } from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function App() {
-  const [auth, setAuth] = useState(localStorage.getItem("auth") !== null);
+  const [auth, setAuth] = useState<boolean>(localStorage.getItem("auth") !== null);
 
   useEffect(() => {
     if (auth) {
@@ -27,9 +26,11 @@ function App() {
             </RequireAuth>
           }
         />
-      
 
-        <Route path="/login" element={<Login setAuth={setAuth} />} />
+        <Route
+          path="/login"
+          element={<Login auth={auth} setAuth={setAuth} />}
+        />
       </Routes>
       <ToastContainer
         hideProgressBar={true}
