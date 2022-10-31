@@ -12,6 +12,7 @@
   position: relative;
   width: 350px;
   display: flex;
+  justify-content: center;
   padding-bottom: 30px;
 }
 .login-image {
@@ -19,8 +20,8 @@
   width: 91px;
   position: absolute;
   padding-bottom: 30px;
-  bottom: 36px;
-  right: -15px;
+  bottom: 35px;
+  right: -57px;
 }
 .login-container {
   display: flex;
@@ -39,7 +40,6 @@
   justify-content: center;
   &--username,
   &--password {
-    font-style: italic;
     display: inline-block;
     width: 200px;
     text-align: left;
