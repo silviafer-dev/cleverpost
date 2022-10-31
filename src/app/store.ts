@@ -1,12 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 import postsReducer from "../features/post/postSlice";
+import favoritePostReducer from '../features/post/favSlices'
 
 
 export const store = configureStore({
   reducer: {
     posts: postsReducer,
-   
+    favoritePosts: favoritePostReducer
   },
 });
 

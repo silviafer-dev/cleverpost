@@ -10,13 +10,10 @@ export interface IPostsState {
   status: string;
   posts: IPost[];
 }
-export interface IAuth {
-  children: any;
-  auth: string;
-}
+
 export interface IAuthState {
   children: any;
-  auth: IAuth;
+  auth: boolean;
   setAuth: (state: boolean) => void;
 }
 

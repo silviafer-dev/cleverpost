@@ -2,22 +2,26 @@ import { useState } from "react";
 import { deletePost } from "./postSlice";
 import "../../sass/post.scss";
 import { IPost } from "../../interfaces";
-import { useAppDispatch } from "../../app/hooks";
-import { TiTrash, TiEdit } from "react-icons/ti";
-
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import {
+  TiTrash,
+  TiEdit,
+  TiHeartOutline,
+  TiHeartFullOutline,
+} from "react-icons/ti";
 import { UpdatePost } from "../../components/UpdatePost";
 import { NoMatches } from "../../components/NoMatches";
-
+import { addPost, removePost, selectFavoriteState } from "./favSlices";
 
 export function Post(props: {
   searchPost: IPost[];
   posts: IPost[];
   filteredPost: IPost[];
   searchInput: string;
- 
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [editPost, setEditPost] = useState([]);
+  const favPosts = useAppSelector(selectFavoriteState);
   const dispatch = useAppDispatch();
 
   const handleOpen = (post: any) => {
@@ -33,6 +37,14 @@ export function Post(props: {
 
   const handleDelete = (id: number | string) => {
     dispatch(deletePost(id));
+  };
+  const addToFavorite = (id: number | string) => {
+    if (favPosts.find((item: IPost) => item.id === id)) return;
+    let newFavorite: any = props.posts.find((item: IPost) => item.id === id);
+    dispatch(addPost(newFavorite));
+  };
+  const removeFromFavorite = (id: string | number) => {
+    dispatch(removePost(id));
   };
 
   return (
@@ -87,6 +99,17 @@ export function Post(props: {
                     className="post-card__icon"
                     onClick={() => handleDelete(post.id)}
                   />
+                  {favPosts.find((item) => item.id === post.id) ? (
+                    <TiHeartFullOutline
+                      className="post-card__icon"
+                      onClick={() => removeFromFavorite(post.id)}
+                    />
+                  ) : (
+                    <TiHeartOutline
+                      className="post-card__icon"
+                      onClick={() => addToFavorite(post.id)}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -137,6 +160,17 @@ export function Post(props: {
                   className="post-card__icon delete"
                   onClick={() => handleDelete(post.id)}
                 />
+                {favPosts.find((item) => item.id === post.id) ? (
+                  <TiHeartFullOutline
+                    className="post-card__icon"
+                    onClick={() => addToFavorite(post.id)}
+                  />
+                ) : (
+                  <TiHeartOutline
+                    className="post-card__icon"
+                    onClick={() => removeFromFavorite(post.id)}
+                  />
+                )}
               </div>
             </div>
           </div>

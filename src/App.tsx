@@ -5,10 +5,12 @@ import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { FavPosts } from "./pages/FavPosts";
 
 function App() {
-  const [auth, setAuth] = useState<boolean>(localStorage.getItem("auth") !== null);
+  const [auth, setAuth] = useState<boolean>(
+    localStorage.getItem("auth") !== null
+  );
 
   useEffect(() => {
     if (auth) {
@@ -27,7 +29,15 @@ function App() {
             </RequireAuth>
           }
         />
-       
+        <Route
+          path="/favorite"
+          element={
+            <RequireAuth auth={auth}>
+              <FavPosts auth={auth} setAuth={setAuth} />
+            </RequireAuth>
+          }
+        />
+
         <Route
           path="/login"
           element={<Login auth={auth} setAuth={setAuth} />}

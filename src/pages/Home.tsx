@@ -7,7 +7,7 @@ import { fetchPosts, selectState } from "../features/post/postSlice";
 import { IPost } from '../interfaces';
 
 export function Home(props: {
-  auth: boolean;
+  auth: boolean ;
   setAuth: (state: boolean) => void;
 }) {
   const [searchInput, setSearchInput] = useState<string>("");
@@ -35,6 +35,7 @@ export function Home(props: {
         auth={props.auth}
         setAuth={props.setAuth}
         searchItems={searchItems}
+        searchInput={searchInput}
       />
       <div className="post-container">
         <Post
@@ -42,7 +43,6 @@ export function Home(props: {
           posts={posts}
           filteredPost={filteredPost}
           searchInput={searchInput}
-         
         />
       </div>
     </>
