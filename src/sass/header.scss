@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   &__label {
     display: flex;
     align-items: center;
@@ -16,8 +17,9 @@
     color: brown;
     border-radius: 10px 10px 0 10px;
     border: none;
-    border-bottom: 1px solid brown
+    border-bottom: 1px solid brown;
   }
+ 
 }
 .title {
   font-family: "Fasthand", cursive;
@@ -25,7 +27,7 @@
   text-align: center;
 }
 .logout {
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 14px;
   border: none;
   color: white;
@@ -43,9 +45,22 @@
 }
 .nav-bar {
   display: flex;
-  margin-left: 50px
+  margin-left: 50px;
+  align-items: center;
+ 
+  &__link {
+    text-decoration: none;
+    color: brown;
+    background-color: rgb(241, 241, 241);
+    margin: 10px 10px 10px 15px;
+    padding: 7px 10px;
+    border-radius: 0 20px;
+    transition: 0.2s ease-in-out 0s;
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
 }
-
 
 @media only screen and (max-width: 700px) {
   .header {
@@ -56,8 +71,8 @@
     font-size: 44px;
   }
   .nav-bar {
-    margin-bottom: 20px;
-    margin: 0;
+    margin:0 10px 20px 10px;
+   
   }
 }
 @media only screen and (max-width: 400px) {

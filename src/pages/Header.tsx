@@ -13,7 +13,6 @@ export function Header(props: {
       <h1 className="title">Posts From the Past</h1>
       <div>
         <nav className="nav-bar">
-          <Link to={"/favorite"}>Fav</Link>
           <label className="header__label left">
             <input
               className="header__input"
@@ -22,6 +21,7 @@ export function Header(props: {
               onChange={(e) => props.searchItems(e.target.value.toLowerCase())}
             />
           </label>
+          <Link className="nav-bar__link" to={"/favorite"}>Favorite</Link>
           <AuthStatus
             auth={props.auth}
             setAuth={props.setAuth}

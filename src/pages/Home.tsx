@@ -7,7 +7,7 @@ import { fetchPosts, selectState } from "../features/post/postSlice";
 import { IPost } from '../interfaces';
 
 export function Home(props: {
-  auth: boolean ;
+  auth: boolean;
   setAuth: (state: boolean) => void;
 }) {
   const [searchInput, setSearchInput] = useState<string>("");

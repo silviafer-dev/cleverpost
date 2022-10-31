@@ -17,3 +17,6 @@ export interface IAuthState {
   setAuth: (state: boolean) => void;
 }
 
+export interface IFavPostState {
+  collection: IPost[];
+}

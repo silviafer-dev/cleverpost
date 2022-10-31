@@ -1,15 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { RootState } from "../../app/store";
-import { IPost } from "../../interfaces";
+import { IFavPostState, IPost } from "../../interfaces";
 
-export interface IFavPostState {
-  collection: IPost[] ;
-}
 
 const localStore: string | null = localStorage.getItem("favoritePost");
 
 const initialState: IFavPostState = {
   collection: localStore ? JSON.parse(localStore) : [],
+};
+const notify = (message: string) => {
+  toast.success(message, {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    progress: undefined,
+    theme: "light",
+  });
 };
 
 const favPostsSlice = createSlice({
@@ -19,12 +28,14 @@ const favPostsSlice = createSlice({
     addPost(state: IFavPostState, action: PayloadAction<IPost>) {
       state.collection.push(action.payload);
       localStorage.setItem("favoritePost", JSON.stringify(state.collection));
+      notify("Post added to favorite with success!");
     },
     removePost(state: IFavPostState, action: PayloadAction<string | number>) {
       const newStatePosts = state.collection.filter(
         (item: any) => item.id !== action.payload
       );
-      localStorage.setItem("favoritePhoto", JSON.stringify(newStatePosts));
+      localStorage.setItem("favoritePost", JSON.stringify(newStatePosts));
+      notify("Post remove from favorite with success!");
       return { ...state, collection: newStatePosts };
     },
   },
