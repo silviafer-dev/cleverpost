@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Post } from "../features/post/Post";
+import { Post } from "../components/Post";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { fetchPosts, selectState } from "../features/post/postSlice";
-import { IPost } from '../interfaces';
+import { IPost } from "../interfaces";
 
 export function Home(props: {
   auth: boolean;

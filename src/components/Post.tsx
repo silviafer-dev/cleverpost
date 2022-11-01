@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { deletePost } from "./postSlice";
-import "../../sass/post.scss";
-import { IPost } from "../../interfaces";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { deletePost } from "../features/post/postSlice";
+import "../sass/post.scss";
+import { IPost } from "../interfaces";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import {
   TiTrash,
   TiEdit,
   TiHeartOutline,
   TiHeartFullOutline,
 } from "react-icons/ti";
-import { UpdatePost } from "../../components/UpdatePost";
-import { NoMatches } from "../../components/NoMatches";
-import { addPost, removePost, selectFavoriteState } from "./favSlices";
+import { UpdatePost } from "./UpdatePost";
+import { NoMatches } from "./NoMatches";
+import {
+  addPost,
+  removePost,
+  selectFavoriteState,
+} from "../features/post/favSlices";
 
 export function Post(props: {
   searchPost: IPost[];
