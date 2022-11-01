@@ -1,0 +1,119 @@
+.login {
+  height: 100vh;
+  background-image: url("../assets/images/photo-vintage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-box {
+  position: relative;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+.login-image {
+  text-align: end;
+  width: 91px;
+  position: absolute;
+  padding-bottom: 30px;
+  bottom: 35px;
+  right: -57px;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  width: fit-content;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &--username,
+  &--password {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+  }
+  &--input {
+    padding: 2px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px 5px 0 5px;
+    color: darkgoldenrod;
+  }
+  &--button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px 20px 0 20px;
+    color: rgb(85, 62, 3);
+    border: 3px solid white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out 0s;
+    background-color: inherit;
+    &:hover {
+      transform: scale(1.2);
+      background-color: white;
+    }
+  }
+}
+.login__title {
+  font-size: 34px;
+  font-family: "Fasthand", cursive;
+}
+
+@media only screen and (max-width: 500px) {
+  .container-box {
+    position: relative;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .login__title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .login-image {
+    text-align: end;
+    width: 58px;
+    position: absolute;
+    padding-bottom: 30px;
+    bottom: 27px;
+    left: 277px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container-box {
+    position: relative;
+    width: 337px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .login__title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .login-image {
+    text-align: end;
+    width: 47px;
+    position: absolute;
+    padding-bottom: 30px;
+    bottom: 27px;
+    left: 275px;
+  }
+}

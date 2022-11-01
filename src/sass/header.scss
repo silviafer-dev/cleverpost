@@ -1,0 +1,90 @@
+.header {
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 168, 81),
+    rgb(255, 167, 81, 0)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    padding: 7px;
+    color: brown;
+    border-radius: 10px 10px 0 10px;
+    border: none;
+    border-bottom: 1px solid brown;
+  }
+ 
+}
+.title {
+  font-family: "Fasthand", cursive;
+  font-size: 50px;
+  text-align: center;
+}
+.logout {
+  margin-left: 10px;
+  font-size: 14px;
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 8px 10px;
+  border-radius: 0 10px 10px 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.2s ease-in-out 0s;
+  &:hover {
+    transform: scale(1.25);
+    background-color: black;
+    opacity: 1;
+  }
+}
+.nav-bar {
+  display: flex;
+  margin-left: 50px;
+  align-items: center;
+ 
+  &__link {
+    text-decoration: none;
+    color: brown;
+    background-color: rgb(241, 241, 241);
+    margin: 10px 10px 10px 15px;
+    padding: 7px 10px;
+    border-radius: 0 20px;
+    transition: 0.2s ease-in-out 0s;
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 44px;
+  }
+  .nav-bar {
+    margin:0 10px 20px 10px;
+   
+  }
+}
+@media only screen and (max-width: 400px) {
+  .title {
+    font-size: 35px;
+  }
+  .logout {
+    margin: 0;
+    padding: 5px 6px;
+  }
+  .nav-bar__link {
+     padding: 6px 6px;
+     margin: 5px;
+  }
+}
